@@ -1,5 +1,5 @@
 import telegram 
-from telegram.ext import Updater, messagehandler, filters
+from telegram.ext import Updater, MessageHandler, Filters
 
 import configparser
 import logging
@@ -15,7 +15,7 @@ def main():
     logging.basicConfig(format='%(asctime)s-%(name)s-%(levelname)s-%(message)s', level=logging.INFO)
     # register a dispatcher to handle message:
     # here we register an echo dispatcher
-    echo_handler=messagehandler(filters.text & (~filters.command), echo)
+    echo_handler=MessageHandler(Filters.text & (~Filters.command), echo)
     dispatcher.add_handler(echo_handler)
     # To start the bot:
     updater.start_polling()
