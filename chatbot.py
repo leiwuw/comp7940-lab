@@ -52,11 +52,10 @@ def add(update: Update, context: CallbackContext) -> None:
         msg = context.args[0]   # /add keyword <-- this should store the keyword
         redis1.incr(msg)
         
-        update.message.reply_text('You have said ' + msg +  ' for ' + 
-                        redis1.get(msg).decode('UTF-8') + ' times.')
+        update.message.reply_text('You have said ' + msg +  ' for ' + redis1.get(msg).decode('UTF-8') + ' times.')
     
     except (IndexError, ValueError):
-        update.message.reply_text('Usage: /add <keyword>')
+        update.message.reply_text('Usage:/add <keyword>')
 
 if __name__=='__main__':
     main()
