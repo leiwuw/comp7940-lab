@@ -36,6 +36,7 @@ def main():
     # on different commands - answer in Telegram
     dispatcher.add_handler(CommandHandler("add", add))
     dispatcher.add_handler(CommandHandler("help", help_command))
+    dispatcher.add_handler(CommandHandler("hello", hello_command))
 
     # To start the bot:
     updater.start_polling()
@@ -63,6 +64,14 @@ def add(update: Update, context: CallbackContext) -> None:
     
     except (IndexError, ValueError):
         update.message.reply_text('Usage:/add <keyword>')
+
+def hello_command(update: Update, context: CallbackContext) -> None:
+    """Send a greeting message when the command /hello is issued."""
+    try:
+        name = context.args[0]
+        update.message.reply_text(f'Good day, {name}!')
+    except (IndexError, ValueError):
+        update.message.reply_text('Usage: /hello <name>')
 
 from ChatGPT_HKBU import HKBU_ChatGPT
 def equiped_chatgpt(update, context): 
