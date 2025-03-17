@@ -36,6 +36,7 @@ def main():
     # on different commands - answer in Telegram
     dispatcher.add_handler(CommandHandler("add", add))
     dispatcher.add_handler(CommandHandler("help", help_command))
+    
     dispatcher.add_handler(CommandHandler("hello", hello_command))
 
     # To start the bot:
