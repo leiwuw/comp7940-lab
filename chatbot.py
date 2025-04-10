@@ -1,9 +1,13 @@
 from telegram import Update
-from telegram.ext import Updater, MessageHandler, Filters, CommandHandler, CallbackContext
+from telegram.ext import Updater, MessageHandler, filters, CommandHandler, CallbackContext
 
 import configparser
 import logging
 import redis
+
+import telebot
+bot = telebot.TeleBot(os.getenv('7945850444:AAEuld73YYsKSi3Cn_1LCGOyWNMyiqz1l68'))
+bot.set_webhook(url="https://comp7940-lab-leiwuw2.fly.dev/")
 
 global redis1
 def main():
