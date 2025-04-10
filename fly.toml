@@ -19,3 +19,10 @@ dockerfile = "Dockerfile"
 
 [[vm]]
   size = 'shared-cpu-1x'
+
+[env]
+  PORT = "8080"  # 告诉应用使用 8080 端口
+
+[[services]]
+  internal_port = 8080  # 容器内端口
+  protocol = "tcp"
