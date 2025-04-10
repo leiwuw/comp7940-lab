@@ -3,29 +3,34 @@
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'comp7940-lab-leiwuw2'
-primary_region = 'hkg'
+app = "comp7946-lab-leiwuw2"
+primary_region = "hkg"
 
 [build]
-dockerfile = "Dockerfile"
-
-[http_service]
-  internal_port = 8080
-  force_https = true
-  auto_stop_machines = false
-  auto_start_machines = true
-  min_machines_running = 0
-  processes = ['app']
-
-[[vm]]
-  size = 'shared-cpu-1x'
+dockerfile = "Dockerfile"  # 修正拼写
 
 [env]
-  PORT = "8080"  # 告诉应用使用 8080 端口
+PORT = "8888"  # 确保应用监听此端口
+
+[http_service]
+internal_port = 8888       # 去掉下划线，与 PORT 环境变量一致
+force_https = true
+auto_stop_machines = false
+auto_start_machines = true
+min_machines_running = 1   # 保持至少 1 个实例运行
+processes = ["app"]
 
 [[services]]
-  internal_port = 8080  # 容器内端口
-  protocol = "tcp"
-  [[services.ports]]
-  handlers = ["http", "tls"]  # 启用 HTTPS
-  port = 443
+internal_port = 8888       # 与 http_service 一致
+protocol = "tcp"
+
+[[services.ports]]
+handlers = ["http"]        # 外部 80 端口转发到 8888
+port = 80
+
+[[services.ports]]
+handlers = ["tls"]         # 外部 443 端口转发到 8888
+port = 443
+
+[[vm]]
+size = "shared-cpu-1x"
