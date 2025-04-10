@@ -9,6 +9,14 @@ import telebot
 bot = telebot.TeleBot(os.getenv('7945850444:AAEuld73YYsKSi3Cn_1LCGOyWNMyiqz1l68'))
 bot.set_webhook(url="https://comp7940-lab-leiwuw2.fly.dev/")
 
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/health')
+def health_check():
+    return 'OK', 200
+
+
 global redis1
 def main():
     # Load your token and create an Updater for your Bot

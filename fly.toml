@@ -14,6 +14,9 @@ PORT = "8888"  # 确保应用监听此端口
 
 [http_service]
 internal_port = 8888      # 去掉下划线，与 PORT 环境变量一致
+health_check_path = "/health"
+health_check_interval = "10s"
+health_check_timeout = "2s"
 force_https = true
 auto_stop_machines = false
 auto_start_machines = true
