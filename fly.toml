@@ -26,3 +26,6 @@ dockerfile = "Dockerfile"
 [[services]]
   internal_port = 8080  # 容器内端口
   protocol = "tcp"
+  [[services.ports]]
+  handlers = ["http", "tls"]  # 启用 HTTPS
+  port = 443
