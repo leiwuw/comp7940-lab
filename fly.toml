@@ -13,7 +13,7 @@ dockerfile = "Dockerfile"  # 修正拼写
 PORT = "8888"  # 确保应用监听此端口
 
 [http_service]
-internal_port = 8888       # 去掉下划线，与 PORT 环境变量一致
+internal_port = 8080       # 去掉下划线，与 PORT 环境变量一致
 force_https = true
 auto_stop_machines = false
 auto_start_machines = true
@@ -21,7 +21,7 @@ min_machines_running = 1   # 保持至少 1 个实例运行
 processes = ["app"]
 
 [[services]]
-internal_port = 8888       # 与 http_service 一致
+internal_port = 8080       # 与 http_service 一致
 protocol = "tcp"
 
 [[services.ports]]
