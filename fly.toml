@@ -3,7 +3,7 @@
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "comp7946-lab-leiwuw2"
+app = "comp7940-lab-leiwuw2"
 primary_region = "hkg"
 
 [build]
