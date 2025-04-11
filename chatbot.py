@@ -27,7 +27,7 @@ def main():
     logging.basicConfig(format='%(asctime)s-%(name)s-%(levelname)s-%(message)s', level=logging.INFO)
     # register a dispatcher to handle message:
     # here we register an echo dispatcher
-    #echo_handler=MessageHandler(Filters.text & (~Filters.command), echo)
+    #echo_handler=MessageHandler(filters.text & (~filters.command), echo)
     #dispatcher.add_handler(echo_handler)
 
     # dispatcher for chatgpt
