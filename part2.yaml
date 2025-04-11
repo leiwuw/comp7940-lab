@@ -1,0 +1,10 @@
+version: '3'
+services: 
+  chatbot:
+    image: comp7940-lab-chatbot
+    environment:
+        -ACCESS_TOKEN_TG: 7945850444:AAEuld73YYsKSi3Cn_1LCGOyWNMyiqz1l68
+        -ACCESS_TOKEN_CHATGPT: a5d67602-ced8-4b3f-926b-8e07012a59ba
+        -PASSWORD_REDIS: o208mJzMb5yvFi1it9VhLZsgUx4u6HDz
+        -PORT_REDIS: 18372
+        -HOST_REDIS: redis-18372.c91.us-east-1-3.ec2.redns.redis-cloud.com

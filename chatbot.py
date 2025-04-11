@@ -1,21 +1,12 @@
-from telegram import Update, request
+from telegram import Update
 from telegram.ext import Updater, MessageHandler, Filters, CommandHandler, CallbackContext
 import os
 import configparser
 import logging
 import redis
 logging.basicConfig(level=logging.INFO)
-import telebot
-bot = telebot.TeleBot(os.getenv('7945850444:AAEuld73YYsKSi3Cn_1LCGOyWNMyiqz1l68'))
-bot.set_webhook(url="https://comp7940-lab-leiwuw2.fly.dev/webhook")
 
-@app.route('/webhook', methods=['POST'])
-def webhook():
-    logging.info("Received update: %s", request.json)
-    if request.method == "POST":
-        update = Update.de_json(request.get_json(force=True), bot)
-        bot.process_new_updates([update])
-    return 'ok', 200
+TOKEN = os.getenv('7945850444:AAEuld73YYsKSi3Cn_1LCGOyWNMyiqz1l68')
 
 
 global redis1
