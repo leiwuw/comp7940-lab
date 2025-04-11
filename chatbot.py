@@ -1,12 +1,12 @@
 from telegram import Update
-from telegram.ext import Updater, MessageHandler, filters, CommandHandler, CallbackContext
+from telegram.ext import Updater, MessageHandler, Filters, CommandHandler, CallbackContext
 import os
 import configparser
 import logging
 import redis
 logging.basicConfig(level=logging.INFO)
 
-TOKEN = os.getenv('7945850444:AAEuld73YYsKSi3Cn_1LCGOyWNMyiqz1l68')
+token = os.getenv('7945850444:AAEuld73YYsKSi3Cn_1LCGOyWNMyiqz1l68')
 
 
 global redis1
@@ -27,13 +27,13 @@ def main():
     logging.basicConfig(format='%(asctime)s-%(name)s-%(levelname)s-%(message)s', level=logging.INFO)
     # register a dispatcher to handle message:
     # here we register an echo dispatcher
-    #echo_handler=MessageHandler(filters.text & (~filters.command), echo)
+    #echo_handler=MessageHandler(Filters.text & (~Filters.command), echo)
     #dispatcher.add_handler(echo_handler)
 
     # dispatcher for chatgpt
     global chatgpt
     chatgpt = HKBU_ChatGPT(config)
-    chatgpt_handler = MessageHandler(filters.text & (~filters.command), 
+    chatgpt_handler = MessageHandler(Filters.text & (~Filters.command), 
                         equiped_chatgpt)
     dispatcher.add_handler(chatgpt_handler)
 

@@ -1,4 +1,4 @@
-FROM python
+FROM python:3.11
 WORKDIR /CHATBOT
 COPY .  /CHATBOT
 RUN pip install --upgrade pip
